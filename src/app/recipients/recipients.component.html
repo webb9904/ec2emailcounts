@@ -1,0 +1,27 @@
+<div class="container">
+    <mat-toolbar>
+        <span>{{form.get('Id').value? 'Modify' : 'Create'}} Recipient</span>
+    </mat-toolbar>
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <div class="controls-container">
+            <input type="hidden" formControlName="Id">
+            <mat-form-field>
+                <input formControlName="EmailAddress" matInput placeholder="Email Address*">
+                <mat-error>This field is required, Please enter a valid email address</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="Department" placeholder="Department*">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let department of departments" [value]="department.value">
+                        {{department.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>This field is required, Please select a valid department</mat-error>
+            </mat-form-field>
+            <mat-dialog-actions class="class button-row">
+                <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Submit</button>
+                <button class="ml-10" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </div>
+    </form>
+</div>

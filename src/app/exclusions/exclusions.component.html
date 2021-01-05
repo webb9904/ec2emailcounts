@@ -1,0 +1,22 @@
+<div class="container">
+    <mat-toolbar>
+        <span>{{form.get('Id').value? 'Modify' : 'Create'}} Exclusion</span>
+    </mat-toolbar>
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <div class="controls-container">
+            <input type="hidden" formControlName="Id">
+            <mat-form-field>
+                <input formControlName="Domain" matInput placeholder="Domain*">
+                <mat-error>This field is required, Please enter a valid domain</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input formControlName="FullAddress" matInput placeholder="Email Address*">
+                <mat-error>This field is required, Please enter a valid email address</mat-error>
+            </mat-form-field>
+            <mat-dialog-actions class="class button-row">
+                <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Submit</button>
+                <button class="ml-10" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+.content-container {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+span.content-span {
+    padding:  35px 16px;    
+    font-size: 18px;
+}
+
+.modal-button-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
